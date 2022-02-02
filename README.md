@@ -41,103 +41,103 @@ As in the course description, analytics-based scenario was chosen for this case 
 
 Utilisation of SQL skills has been practiced in Google Big Querry platform. Since my personal account has a file upload limitations I was not able to  upload my preperad csv file with cleaned dataframe. For the exercise purpose smaller file was uploaded (monthly data only) and the work was performed on this dataset.
 
-Querry 1
+##### Querry 1
 
 Calculate basic metrics (AVG, MIN, MAX)
 
 SELECT AVG(tripduration) As Average, MIN(tripduration) AS Min, MAX(tripduration) AS Max FROM `adroit-minutia-329609.GoogleCapstone.Trips2019Q1_example` LIMIT 1000
 
-Average	Min	Max
+Average	Min	Max <br>
 1016.3420339716529	61.0	1.06284E7
 
 
-Querry 2
+##### Querry 2
 
 Calculating number of rides by user type
 
 SELECT COUNT(usertype) AS NumberOfRides , usertype FROM `adroit-minutia-329609.GoogleCapstone.Trips2019Q1_example` GROUP BY usertype LIMIT 1000
 
-NumberOfRides	usertype
-341906	Subscriber
+NumberOfRides	usertype <br>
+341906	Subscriber <br>
 23163	Customer
 
-Querry 3
+##### Querry 3
 
 Calculating number of rides and average ride for usertype "Customer"
 
 SELECT COUNT(usertype) AS NumberOfRides , AVG(tripduration) AS AvgRide FROM `adroit-minutia-329609.GoogleCapstone.Trips2019Q1_example` WHERE usertype = "Customer" LIMIT 1000
 
-NumberOfRides	AvgRide
+NumberOfRides	AvgRide <br>
 23163	3715.7375987566475
 
 ![image](https://user-images.githubusercontent.com/79140709/152154053-fa4bcb03-3ee0-4b36-a6a8-5a175ee04660.png)
 
 
-Querry 4
+##### Querry 4
 
 Calculating number of rides and average ride for usertype "Subscriber"
 
 SELECT COUNT(usertype) AS NumberOfRides , AVG(tripduration) AS AvgRide FROM `adroit-minutia-329609.GoogleCapstone.Trips2019Q1_example` WHERE usertype = "Subscriber" LIMIT 1000
 
-NumberOfRides	AvgRide
+NumberOfRides	AvgRide <br>
 341906	833.4669178078134
 
 ![image](https://user-images.githubusercontent.com/79140709/152153938-1525f102-9e65-49ac-abce-5718000962b4.png)
 
 
-Querry 5
+##### Querry 5
 
 Calculating average trip duration by gender.
 
 SELECT gender, AVG(tripduration) As AverageTripDuration FROM `adroit-minutia-329609.GoogleCapstone.Trips2019Q1_example` GROUP BY gender LIMIT 1000
 
-gender	AverageTripDuration
-Male	840.0283148972994
-	3838.052356552175
+gender	AverageTripDuration <br>
+Male	840.0283148972994 <br>
+	3838.052356552175 <br>
 Female	918.820586389315
 
 
 ![image](https://user-images.githubusercontent.com/79140709/152153735-ea881492-c3df-4085-9b5e-3807e996a0fe.png)
 
 
-Querry 6
+##### Querry 6
 
 Calculating 10 longest trips.
 
 SELECT from_station_name AS station, tripduration FROM  `adroit-minutia-329609.GoogleCapstone.Trips2019Q1_example` ORDER BY tripduration DESC LIMIT 10
 
-station	tripduration
-Leavitt St & North Ave	1.06284E7
-Central Park Ave & Ogden Ave	6096430.0
-Wentworth Ave & 63rd St	5646180.0
-Wabash Ave & Cermak Rd	4859470.0
-Wells St & Elm St	3926850.0
-State St & Van Buren St	3406960.0
-Dearborn St & Erie St	3095670.0
-LaSalle Dr & Huron St (*)	2592880.0
-Dearborn St & Erie St	2358950.0
+station	tripduration <br>
+Leavitt St & North Ave	1.06284E7 <br>
+Central Park Ave & Ogden Ave	6096430.0 <br>
+Wentworth Ave & 63rd St	5646180.0 <br>
+Wabash Ave & Cermak Rd	4859470.0 <br>
+Wells St & Elm St	3926850.0 <br>
+State St & Van Buren St	3406960.0 <br>
+Dearborn St & Erie St	3095670.0 <br>
+LaSalle Dr & Huron St (*)	2592880.0 <br>
+Dearborn St & Erie St	2358950.0 <br>
 Greenview Ave & Jarvis Ave	1887870.0
 
 
 ![image](https://user-images.githubusercontent.com/79140709/152157167-86265f43-92d6-4abe-9a93-b8caf3772400.png)
 
 
-Querry 7
+##### Querry 7
 
 Calculating 10 most popular start stations.
 
 SELECT from_station_name AS Station,COUNT(trip_id) AS NumberOfTrips FROM  `adroit-minutia-329609.GoogleCapstone.Trips2019Q1_example` GROUP BY from_station_name ORDER BY NumberOfTrips DESC  LIMIT 10
 
-Station	NumberOfTrips
-Clinton St & Washington Blvd	7699
-Clinton St & Madison St	6565
-Canal St & Adams St	6342
-Columbus Dr & Randolph St	4655
-Canal St & Madison St	4571
-Kingsbury St & Kinzie St	4395
-Michigan Ave & Washington St	3992
-Franklin St & Monroe St	3516
-LaSalle St & Jackson Blvd	3252
+Station	NumberOfTrips <br>
+Clinton St & Washington Blvd	7699 <br>
+Clinton St & Madison St	6565 <br>
+Canal St & Adams St	6342 <br>
+Columbus Dr & Randolph St	4655 <br>
+Canal St & Madison St	4571 <br>
+Kingsbury St & Kinzie St	4395 <br>
+Michigan Ave & Washington St	3992 <br>
+Franklin St & Monroe St	3516 <br>
+LaSalle St & Jackson Blvd	3252 <br>
 Dearborn St & Monroe St	3246
 
 
