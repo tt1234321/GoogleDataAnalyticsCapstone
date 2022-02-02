@@ -7,7 +7,7 @@ As in the course description, analytics-based scenario was chosen for this case 
 
 
 
-<img width="500" alt="image" src="https://www.rstudio.com/wp-content/uploads/2018/10/RStudio-Logo-Flat.png">
+<img width="100" alt="image" src="https://www.rstudio.com/wp-content/uploads/2018/10/RStudio-Logo-Flat.png">
 ##### Links to the code in R (export from RStudio to pdf file): 
 
 [Rstudio - Part 1. Data collection and creation of dataframe](GoogleCapstoneTT_Part1_CreateRawDataframe.pdf)
