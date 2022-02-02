@@ -80,6 +80,8 @@ Calculating average trip duration by gender.
 
 SELECT gender, AVG(tripduration) As AverageTripDuration FROM `adroit-minutia-329609.GoogleCapstone.Trips2019Q1_example` GROUP BY gender LIMIT 1000
 
+![image](https://user-images.githubusercontent.com/79140709/152153735-ea881492-c3df-4085-9b5e-3807e996a0fe.png)
+
 
 
 Number of rides by membership type
