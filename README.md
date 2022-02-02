@@ -6,4 +6,11 @@ Several RMD files with R code in RStudiowere uploaded, and for better readibilit
 In addition link to my work in Taubleau is published below
 
 
+https://public.tableau.com/app/profile/tomasz.tomaszewski4391/viz/GoogleCapstoneNoOfTrips/DashboardNumberofTrips
+
+https://public.tableau.com/app/profile/tomasz.tomaszewski4391/viz/GoogleCapstoneAverageTrips/DashboardAverage
+
+https://public.tableau.com/app/profile/tomasz.tomaszewski4391/viz/GoogleCapstoneTopStations/StartStationsDashboard
+
+
 [RMD 1](GoogleCapstoneTT_Part1_CreateRawDataframe.pdf)
