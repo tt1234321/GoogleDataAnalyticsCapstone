@@ -6,4 +6,4 @@ Several RMD files with R code in RStudiowere uploaded, and for better readibilit
 In addition link to my work in Taubleau is published below
 
 
-[RMD 1](GoogleDataAnalyticsCapstone/GoogleCapstoneTT_Part1_CreateRawDataframe.pdf)
+[RMD 1](GoogleCapstoneTT_Part1_CreateRawDataframe.pdf)
