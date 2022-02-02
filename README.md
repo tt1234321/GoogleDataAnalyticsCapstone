@@ -10,7 +10,7 @@ As in the course description, analytics-based scenario was chosen for this case 
 
 ##### Links to the code in R (export from RStudio to pdf file): 
 
-<img width="100" alt="image" src="https://www.rstudio.com/wp-content/uploads/2018/10/RStudio-Logo-Flat.png">
+<img width="200" alt="image" src="https://www.rstudio.com/wp-content/uploads/2018/10/RStudio-Logo-Flat.png">
 
 [Rstudio - Part 1. Data collection and creation of dataframe](GoogleCapstoneTT_Part1_CreateRawDataframe.pdf)
 
@@ -35,6 +35,9 @@ As in the course description, analytics-based scenario was chosen for this case 
 
 
 ##### SQL work in Google Big Querry:
+
+<img width="200" alt="image" src="https://www.vectorlogo.zone/logos/google_bigquery/google_bigquery-ar21.png">
+
 
 Utilisation of SQL skills has been practiced in Google Big Querry platform. Since my personal account has a file upload limitations I was not able to  upload my preperad csv file with cleaned dataframe. For the exercise purpose smaller file was uploaded (monthly data only) and the work was performed on this dataset.
 
