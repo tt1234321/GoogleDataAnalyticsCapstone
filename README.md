@@ -16,7 +16,7 @@ As in the course description, analytics-based scenario was chosen for this case 
 
 [Rstudio - Part 3. Browsing data and descriptive data analysis](GoogleCapstoneTT_Part3_FromCleanDataToAnalysis.pdf)
 
-[Rstudio - Part 1. Basic data visualisations](GoogleCapstoneTT_Part4_DatVis.pdf)
+[Rstudio - Part 4. Basic data visualisations](GoogleCapstoneTT_Part4_DatVis.pdf)
 
 ##### Links to my work in Taubleau is published below
 
