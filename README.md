@@ -10,7 +10,7 @@ As in the course description, analytics-based scenario was chosen for this case 
 
 #### Links to the code in R (export from RStudio to pdf file): 
 
-<img width="200" alt="image" src="https://www.rstudio.com/wp-content/uploads/2018/10/RStudio-Logo-Flat.png">
+<img width="100" alt="image" src="https://www.rstudio.com/wp-content/uploads/2018/10/RStudio-Logo-Flat.png">
 
 [Rstudio - Part 1. Data collection and creation of dataframe](GoogleCapstoneTT_Part1_CreateRawDataframe.pdf)
 
@@ -22,7 +22,7 @@ As in the course description, analytics-based scenario was chosen for this case 
 
 #### Links to my work in Taubleau is published below
 
-<img width="100" alt="image" src="https://public.tableau.com/s/sites/default/files/media/Tableau-Public-Logo-for-Intro-Blog.png">
+<img width="200" alt="image" src="https://public.tableau.com/s/sites/default/files/media/Tableau-Public-Logo-for-Intro-Blog.png">
 
 
 
