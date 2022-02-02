@@ -67,6 +67,9 @@ SELECT COUNT(usertype) AS NumberOfRides , AVG(tripduration) AS AvgRide FROM `adr
 NumberOfRides	AvgRide
 23163	3715.7375987566475
 
+![image](https://user-images.githubusercontent.com/79140709/152154053-fa4bcb03-3ee0-4b36-a6a8-5a175ee04660.png)
+
+
 Querry 4
 Calculating number of rides and average ride for usertype "Subscriber"
 
@@ -74,6 +77,9 @@ SELECT COUNT(usertype) AS NumberOfRides , AVG(tripduration) AS AvgRide FROM `adr
 
 NumberOfRides	AvgRide
 341906	833.4669178078134
+
+![image](https://user-images.githubusercontent.com/79140709/152153938-1525f102-9e65-49ac-abce-5718000962b4.png)
+
 
 Querry 5
 Calculating average trip duration by gender.
