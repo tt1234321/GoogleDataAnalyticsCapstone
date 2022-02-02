@@ -26,11 +26,3 @@ Several RMD files with R code in RStudiowere uploaded, and for better readibilit
 [Tableau - Part 3. Most popular rental stations analysis and visualisation dashboard](https://public.tableau.com/app/profile/tomasz.tomaszewski4391/viz/GoogleCapstoneAverageTrips/DashboardAverage)
 
 
-https://public.tableau.com/app/profile/tomasz.tomaszewski4391/viz/GoogleCapstoneNoOfTrips/DashboardNumberofTrips
-
-https://public.tableau.com/app/profile/tomasz.tomaszewski4391/viz/GoogleCapstoneAverageTrips/DashboardAverage
-
-https://public.tableau.com/app/profile/tomasz.tomaszewski4391/viz/GoogleCapstoneTopStations/StartStationsDashboard
-
-
-[RMD 1](GoogleCapstoneTT_Part1_CreateRawDataframe.pdf)
