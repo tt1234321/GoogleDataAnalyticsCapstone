@@ -42,6 +42,7 @@ As in the course description, analytics-based scenario was chosen for this case 
 Utilisation of SQL skills has been practiced in Google Big Querry platform. Since my personal account has a file upload limitations I was not able to  upload my preperad csv file with cleaned dataframe. For the exercise purpose smaller file was uploaded (monthly data only) and the work was performed on this dataset.
 
 Querry 1
+
 Calculate basic metrics (AVG, MIN, MAX)
 
 SELECT AVG(tripduration) As Average, MIN(tripduration) AS Min, MAX(tripduration) AS Max FROM `adroit-minutia-329609.GoogleCapstone.Trips2019Q1_example` LIMIT 1000
@@ -51,6 +52,7 @@ Average	Min	Max
 
 
 Querry 2
+
 Calculating number of rides by user type
 
 SELECT COUNT(usertype) AS NumberOfRides , usertype FROM `adroit-minutia-329609.GoogleCapstone.Trips2019Q1_example` GROUP BY usertype LIMIT 1000
@@ -60,6 +62,7 @@ NumberOfRides	usertype
 23163	Customer
 
 Querry 3
+
 Calculating number of rides and average ride for usertype "Customer"
 
 SELECT COUNT(usertype) AS NumberOfRides , AVG(tripduration) AS AvgRide FROM `adroit-minutia-329609.GoogleCapstone.Trips2019Q1_example` WHERE usertype = "Customer" LIMIT 1000
@@ -71,6 +74,7 @@ NumberOfRides	AvgRide
 
 
 Querry 4
+
 Calculating number of rides and average ride for usertype "Subscriber"
 
 SELECT COUNT(usertype) AS NumberOfRides , AVG(tripduration) AS AvgRide FROM `adroit-minutia-329609.GoogleCapstone.Trips2019Q1_example` WHERE usertype = "Subscriber" LIMIT 1000
@@ -82,6 +86,7 @@ NumberOfRides	AvgRide
 
 
 Querry 5
+
 Calculating average trip duration by gender.
 
 SELECT gender, AVG(tripduration) As AverageTripDuration FROM `adroit-minutia-329609.GoogleCapstone.Trips2019Q1_example` GROUP BY gender LIMIT 1000
@@ -96,6 +101,7 @@ Female	918.820586389315
 
 
 Querry 6
+
 Calculating 10 longest trips.
 
 SELECT from_station_name AS station, tripduration FROM  `adroit-minutia-329609.GoogleCapstone.Trips2019Q1_example` ORDER BY tripduration DESC LIMIT 10
@@ -117,6 +123,7 @@ Greenview Ave & Jarvis Ave	1887870.0
 
 
 Querry 7
+
 Calculating 10 most popular start stations.
 
 SELECT from_station_name AS Station,COUNT(trip_id) AS NumberOfTrips FROM  `adroit-minutia-329609.GoogleCapstone.Trips2019Q1_example` GROUP BY from_station_name ORDER BY NumberOfTrips DESC  LIMIT 10
@@ -142,96 +149,3 @@ Dearborn St & Monroe St	3246
 
 
 ![image](https://user-images.githubusercontent.com/79140709/152158849-e8ce8b10-556d-467d-9178-6fd0cf90d7cd.png)
-
-
-
-
-
-
-
-
-
-
-Number of rides by membership type
-
-pd.read_sql('''
-SELECT
-member_casual,
-COUNT(ride_id) AS number_of_rides
-FROM MAINdivvy2
-GROUP BY member_casual;
-''', con=cony)
-Average ride length by membership type
-
-pd.read_sql('''
-SELECT
-member_casual,
-ROUND(AVG(ride_length)/60,1) AS avr_ride_length_min
-FROM MAINdivvy2
-GROUP BY member_casual;
-''', con=cony)
-Number of rides by weekday, by membership type
-
-pd.read_sql('''
-SELECT
-day_of_week,
-member_casual,
-COUNT(ride_id) AS number_of_rides
-FROM MAINdivvy2
-GROUP BY day_of_week, member_casual
-ORDER BY member_casual, day_of_week;
-''', con=cony)
-Average ride duration by month, by member type
-
-pd.read_sql('''
-SELECT
-STRFTIME('%m', started_at) AS month,
-ROUND(AVG(ride_length/60),1) AS avg_ride_length_min,
-member_casual
-FROM MAINdivvy2
-GROUP BY month, member_casual
-ORDER BY member_casual, month;
-''', con=cony)
-
-
-Number of rides by membership type
-
-pd.read_sql('''
-SELECT
-member_casual,
-COUNT(ride_id) AS number_of_rides
-FROM MAINdivvy2
-GROUP BY member_casual;
-''', con=cony)
-Average ride length by membership type
-
-pd.read_sql('''
-SELECT
-member_casual,
-ROUND(AVG(ride_length)/60,1) AS avr_ride_length_min
-FROM MAINdivvy2
-GROUP BY member_casual;
-''', con=cony)
-Number of rides by weekday, by membership type
-
-pd.read_sql('''
-SELECT
-day_of_week,
-member_casual,
-COUNT(ride_id) AS number_of_rides
-FROM MAINdivvy2
-GROUP BY day_of_week, member_casual
-ORDER BY member_casual, day_of_week;
-''', con=cony)
-Average ride duration by month, by member type
-
-pd.read_sql('''
-SELECT
-STRFTIME('%m', started_at) AS month,
-ROUND(AVG(ride_length/60),1) AS avg_ride_length_min,
-member_casual
-FROM MAINdivvy2
-GROUP BY month, member_casual
-ORDER BY member_casual, month;
-''', con=cony)
-
