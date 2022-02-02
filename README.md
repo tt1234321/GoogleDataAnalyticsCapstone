@@ -8,7 +8,7 @@ As in the course description, analytics-based scenario was chosen for this case 
 
 
 
-##### Links to the code in R (export from RStudio to pdf file): 
+#### Links to the code in R (export from RStudio to pdf file): 
 
 <img width="200" alt="image" src="https://www.rstudio.com/wp-content/uploads/2018/10/RStudio-Logo-Flat.png">
 
@@ -20,7 +20,7 @@ As in the course description, analytics-based scenario was chosen for this case 
 
 [Rstudio - Part 4. Basic data visualisations](GoogleCapstoneTT_Part4_DatVis.pdf)
 
-##### Links to my work in Taubleau is published below
+#### Links to my work in Taubleau is published below
 
 <img width="100" alt="image" src="https://public.tableau.com/s/sites/default/files/media/Tableau-Public-Logo-for-Intro-Blog.png">
 
@@ -34,7 +34,7 @@ As in the course description, analytics-based scenario was chosen for this case 
 [Tableau - Part 3. Most popular rental stations analysis and visualisation dashboard](https://public.tableau.com/app/profile/tomasz.tomaszewski4391/viz/GoogleCapstoneAverageTrips/DashboardAverage)
 
 
-##### SQL work in Google Big Querry:
+#### SQL work in Google Big Querry:
 
 <img width="200" alt="image" src="https://www.vectorlogo.zone/logos/google_bigquery/google_bigquery-ar21.png">
 
