@@ -20,6 +20,9 @@ As in the course description, analytics-based scenario was chosen for this case 
 
 [Rstudio - Part 4. Basic data visualisations](GoogleCapstoneTT_Part4_DatVis.pdf)
 
+<br>
+<br>
+
 #### Links to my work in Taubleau is published below
 
 <img width="200" alt="image" src="https://public.tableau.com/s/sites/default/files/media/Tableau-Public-Logo-for-Intro-Blog.png">
@@ -33,6 +36,8 @@ As in the course description, analytics-based scenario was chosen for this case 
 
 [Tableau - Part 3. Most popular rental stations analysis and visualisation dashboard](https://public.tableau.com/app/profile/tomasz.tomaszewski4391/viz/GoogleCapstoneAverageTrips/DashboardAverage)
 
+<br>
+<br>
 
 #### SQL work in Google Big Querry:
 
