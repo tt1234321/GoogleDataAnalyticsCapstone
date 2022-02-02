@@ -1,12 +1,14 @@
 # GoogleDataAnalyticsCapstone
 Coursera Google Data Analytics Certifficate
 
-### This repository will contain my work for the Coursera course and capstone project of Coursera Google Data Analytics Certifficate.
+##### This repository will contain my work for the Coursera course and capstone project of Coursera Google Data Analytics Certifficate.
 Several RMD files with R code in RStudiowere uploaded, and for better readibility knits of RStudio in pdf were also duplicated.<br>
+As in the course description, analytics-based scenario was chosen for this case study. The following  approach to act on the data from the scenario has been applied:ask questions, prepare, process, analyze, visualize and act . For capstone and case study please refer to [coursera course description](https://www.coursera.org/learn/google-data-analytics-capstone?specialization=google-data-analytics) and also [case study scenario](Capstone_Scenario_CaseStudy.pdf).
 
 
 
-### Links to the code in R (export from RStudio to pdf file): 
+
+##### Links to the code in R (export from RStudio to pdf file): 
 
 [Rstudio - Part 1. Data collection and creation of dataframe](GoogleCapstoneTT_Part1_CreateRawDataframe.pdf)
 
@@ -16,7 +18,7 @@ Several RMD files with R code in RStudiowere uploaded, and for better readibilit
 
 [Rstudio - Part 1. Basic data visualisations](GoogleCapstoneTT_Part4_DatVis.pdf)
 
-### Links to my work in Taubleau is published below
+##### Links to my work in Taubleau is published below
 
 
 [Tableau - Part 1. Number of trips analysis and visualisation dashboard](https://public.tableau.com/app/profile/tomasz.tomaszewski4391/viz/GoogleCapstoneNoOfTrips/DashboardNumberofTrips)
