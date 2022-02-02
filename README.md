@@ -2,8 +2,8 @@
 Coursera Google Data Analytics Certifficate
 
 ##### This repository will contain my work for the Coursera course and capstone project of Coursera Google Data Analytics Certifficate.
-Several RMD files with R code in RStudiowere uploaded, and for better readibility knits of RStudio in pdf were also duplicated.<br>
-As in the course description, analytics-based scenario was chosen for this case study. The following  approach to act on the data from the scenario has been applied:ask questions, prepare, process, analyze, visualize and act . For capstone and case study please refer to [coursera course description](https://www.coursera.org/learn/google-data-analytics-capstone?specialization=google-data-analytics) and also [case study scenario](Capstone_Scenario_CaseStudy.pdf).
+Several RMD files with R markdown and code created in RStudio were uploaded, and for better clearnes knits of RStudio in pdf were also duplicated.<br>
+As in the course description, analytics-based scenario was chosen for this case study. The following  approach to act on the data from the scenario has been applied:ask questions, prepare, process, analyze, visualize and act . For capstone and case study scenario please refer to [coursera course description](https://www.coursera.org/learn/google-data-analytics-capstone?specialization=google-data-analytics) and also [case study scenario](Capstone_Scenario_CaseStudy.pdf).
 
 
 
