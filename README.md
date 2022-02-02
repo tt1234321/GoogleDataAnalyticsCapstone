@@ -86,7 +86,69 @@ Calculating average trip duration by gender.
 
 SELECT gender, AVG(tripduration) As AverageTripDuration FROM `adroit-minutia-329609.GoogleCapstone.Trips2019Q1_example` GROUP BY gender LIMIT 1000
 
+gender	AverageTripDuration
+Male	840.0283148972994
+	3838.052356552175
+Female	918.820586389315
+
+
 ![image](https://user-images.githubusercontent.com/79140709/152153735-ea881492-c3df-4085-9b5e-3807e996a0fe.png)
+
+
+Querry 6
+Calculating 10 longest trips.
+
+SELECT from_station_name AS station, tripduration FROM  `adroit-minutia-329609.GoogleCapstone.Trips2019Q1_example` ORDER BY tripduration DESC LIMIT 10
+
+station	tripduration
+Leavitt St & North Ave	1.06284E7
+Central Park Ave & Ogden Ave	6096430.0
+Wentworth Ave & 63rd St	5646180.0
+Wabash Ave & Cermak Rd	4859470.0
+Wells St & Elm St	3926850.0
+State St & Van Buren St	3406960.0
+Dearborn St & Erie St	3095670.0
+LaSalle Dr & Huron St (*)	2592880.0
+Dearborn St & Erie St	2358950.0
+Greenview Ave & Jarvis Ave	1887870.0
+
+
+![image](https://user-images.githubusercontent.com/79140709/152157167-86265f43-92d6-4abe-9a93-b8caf3772400.png)
+
+
+Querry 7
+Calculating 10 most popular start stations.
+
+SELECT from_station_name AS Station,COUNT(trip_id) AS NumberOfTrips FROM  `adroit-minutia-329609.GoogleCapstone.Trips2019Q1_example` GROUP BY from_station_name ORDER BY NumberOfTrips DESC  LIMIT 10
+
+Station	NumberOfTrips
+Clinton St & Washington Blvd	7699
+Clinton St & Madison St	6565
+Canal St & Adams St	6342
+Columbus Dr & Randolph St	4655
+Canal St & Madison St	4571
+Kingsbury St & Kinzie St	4395
+Michigan Ave & Washington St	3992
+Franklin St & Monroe St	3516
+LaSalle St & Jackson Blvd	3252
+Dearborn St & Monroe St	3246
+
+
+![image](https://user-images.githubusercontent.com/79140709/152158630-4285196a-5324-443c-8b60-4b5bceb7033c.png)
+
+
+
+#### Screenshot of Google BigQuerry workspace. Some results were saved as a tables for further analysis.
+
+
+![image](https://user-images.githubusercontent.com/79140709/152158849-e8ce8b10-556d-467d-9178-6fd0cf90d7cd.png)
+
+
+
+
+
+
+
 
 
 
