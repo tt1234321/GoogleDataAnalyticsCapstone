@@ -1,0 +1,232 @@
+---
+title: "GoogleCapstoneTT_Part1_CreateRawDataframe"
+author: "Tomasz Tomaszewski"
+date: "1/21/2022"
+output:
+  html_document: default
+  pdf_document: default
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## R Markdown
+
+
+# **MY GOOGLE CAPSTONE CODE BEGINS HERE**
+
+In this project I will follow guidelines and recommendations from Coursera Google Data Analytics Professional Certificate.
+
+All information is available when browsing course number 8, Google Data Analytics Capstone: Complete a Case Study. I decided to choose scenario number one, and dataset from 2019 as i believe this will be more representative and unaffected by covid pandemy etc. The workflow and description will be available in final deliverable.
+
+As recommended in capstone guidelines, the following script was used for further work:
+[Link to capstone script (2022 Feb)](https://docs.google.com/document/d/1TTj5KNKf4BWvEORGm10oNbpwTRk1hamsWJGj6qRWpuI/edit)
+
+### Getting working directory. 
+
+```{r}
+getwd()
+
+```
+
+CSV files with datasets were loaded into directory above with help of RStudio.
+
+
+Next step will be loading required packages.
+
+```{r}
+library(tidyverse)
+library(ggplot2)
+library(lubridate)
+
+```
+
+
+### Collecting and loading data:
+
+
+```{r}
+data_q1_2019 <- read_csv("Divvy_Trips_2019_Q1.csv")
+
+```
+
+```{r}
+data_q2_2019 <- read_csv("Divvy_Trips_2019_Q2.csv")
+```
+
+
+```{r}
+data_q3_2019 <- read_csv("Divvy_Trips_2019_Q3.csv")
+
+```
+
+
+```{r}
+data_q4_2019 <- read_csv("Divvy_Trips_2019_Q4.csv")
+```
+
+
+### Comparing column names to identify if they match (which is required for merging all four datasets into one).
+
+```{r}
+colnames(data_q1_2019) == colnames(data_q1_2019)
+
+colnames(data_q1_2019) == colnames(data_q2_2019)
+
+colnames(data_q1_2019) == colnames(data_q3_2019)
+
+colnames(data_q1_2019) == colnames(data_q4_2019)
+```
+
+Warning! Column names for quarters 1, 3, 4 are the same however **for Q2 names are different**.
+
+
+### Retrieving column names:
+
+```{r}
+colnames(data_q1_2019)
+```
+
+```{r}
+colnames(data_q2_2019)
+```
+
+**Note different column names for quarter 2.** Requires name change.
+
+
+```{r}
+colnames(data_q3_2019)
+```
+
+```{r}
+colnames(data_q4_2019)
+```
+
+It is confirmed that Q1 Q3 Q4 column names match, but for Q2 column names need to be changed before datasets will be merged. For consistency and better readibility and convention column names will be changed according to course R script guidelines.
+
+I will also store datasets in new variable (appendded name with **_v2**).
+
+```{r}
+(q1_v2 <- rename(data_q1_2019
+                   ,ride_id = trip_id
+                   ,rideable_type = bikeid 
+                   ,started_at = start_time  
+                   ,ended_at = end_time  
+                   ,start_station_name = from_station_name 
+                   ,start_station_id = from_station_id 
+                   ,end_station_name = to_station_name 
+                   ,end_station_id = to_station_id 
+                   ,member_casual = usertype))
+
+```
+
+
+```{r}
+(q2_v2 <- rename(data_q2_2019
+                   ,ride_id = "01 - Rental Details Rental ID"
+                   ,rideable_type = "01 - Rental Details Bike ID" 
+                   ,started_at = "01 - Rental Details Local Start Time"  
+                   ,ended_at = "01 - Rental Details Local End Time"  
+                   ,start_station_name = "03 - Rental Start Station Name" 
+                   ,start_station_id = "03 - Rental Start Station ID"
+                   ,end_station_name = "02 - Rental End Station Name" 
+                   ,end_station_id = "02 - Rental End Station ID"
+                   ,member_casual = "User Type"))
+
+```
+
+```{r}
+(q3_v2 <- rename(data_q3_2019
+                   ,ride_id = trip_id
+                   ,rideable_type = bikeid 
+                   ,started_at = start_time  
+                   ,ended_at = end_time  
+                   ,start_station_name = from_station_name 
+                   ,start_station_id = from_station_id 
+                   ,end_station_name = to_station_name 
+                   ,end_station_id = to_station_id 
+                   ,member_casual = usertype))
+```
+
+```{r}
+(q4_v2 <- rename(data_q4_2019
+                   ,ride_id = trip_id
+                   ,rideable_type = bikeid 
+                   ,started_at = start_time  
+                   ,ended_at = end_time  
+                   ,start_station_name = from_station_name 
+                   ,start_station_id = from_station_id 
+                   ,end_station_name = to_station_name 
+                   ,end_station_id = to_station_id 
+                   ,member_casual = usertype))
+```
+
+
+### Inspecting data frames for type of data in each column:
+
+```{r}
+str(q1_v2)
+str(q2_v2)
+str(q3_v2)
+str(q4_v2)
+
+```
+
+
+
+
+### Converting ride_id and rideable_type from numerical value to character value
+
+
+
+
+```{r}
+q1_v2 <-  mutate(q1_v2, ride_id = as.character(ride_id),rideable_type = as.character(rideable_type)) 
+
+str(q1_v2)
+```
+
+```{r}
+q2_v2 <-  mutate(q2_v2, ride_id = as.character(ride_id),rideable_type = as.character(rideable_type)) 
+
+str(q2_v2)
+```
+
+```{r}
+q3_v2 <-  mutate(q3_v2, ride_id = as.character(ride_id),rideable_type = as.character(rideable_type)) 
+
+str(q3_v2)
+```
+
+```{r}
+q4_v2 <-  mutate(q4_v2, ride_id = as.character(ride_id),rideable_type = as.character(rideable_type)) 
+
+str(q4_v2)
+```
+
+
+
+## Merging quarterly dataframes into one yearly dataframe for 2019.
+
+```{r}
+data_2019_base <- bind_rows(q1_v2, q2_v2, q3_v2, q4_v2)
+```
+
+
+## export merged dataframe to a csv file
+
+```{r}
+#Comment made to avoid repeating of exporting the file. Uncomment if required#
+#write.csv(data_2019_base, file = 'E:/Tomasz/CapstoneGoogle/capstone_bike_2019_base.csv')
+```
+
+
+## Due to large file and dataset I will continue work in different R  markdown file.
+
+
+
+
+
+
+

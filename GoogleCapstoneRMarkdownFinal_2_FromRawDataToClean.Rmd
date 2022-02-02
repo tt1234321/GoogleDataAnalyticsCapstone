@@ -1,0 +1,142 @@
+---
+title: "GoogleCapstoneTT_Part2_FromRawDataToClean"
+author: "TT"
+date: "31/01/2022"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## R Markdown
+
+## This is **second** part of my capstone project. Ref to previous parts. In the first part data have been collected and browsed. Therafter data was manipulated and processed. As as result data from various csv files has been made compatible. Thereafter data was merged into one large dataframe and exported to a big CSV  file for further analysis. 
+
+### Loading required packages
+
+```{r cars}
+library(tidyverse)
+library(lubridate)
+library(ggplot2)
+library(dplyr)
+```
+
+### Loading previously created dataframe:
+
+```{r}
+bike_data_2019_raw <- read.csv("E:/Tomasz/CapstoneGoogle/capstone_bike_2019_base.csv")
+```
+
+
+
+### Searching for missing values in some colums
+
+```{r}
+
+(colMeans(is.na(bike_data_2019_raw)))
+```
+
+
+
+## While most of the colums contains no missing values there are some colums with significant percentage of missing data. This would require some actions like for example: collecting more data, replacing missing value with other value (like mean, max, median, 0 etc). For the purpose of this capstone I will drop the columns and focus on analysing other columns.
+
+### Removing not required colums and creating new dataframe
+
+```{r}
+bike_data <- bike_data_2019_raw %>%  
+select(-c(birthyear, gender, "X01...Rental.Details.Duration.In.Seconds.Uncapped", "Member.Gender", "X05...Member.Details.Member.Birthday.Year"))
+```
+
+### Brief database statistical summary
+
+```{r}
+summary(bike_data)  #Statistical summary of data. Mainly for numerics
+```
+### Retrieving some basic dataframe info
+
+```{r}
+dim(bike_data)
+nrow(bike_data)
+ncol(bike_data)
+```
+
+```{r}
+colMeans(is.na(bike_data))
+```
+
+
+
+# Insight No 1: 
+## dimention(381804 x 11), number of rows (381804), number of columns (381804). No more missing values except column "tripduration". New column with the length of the ride will therefore be created.
+
+### Column names and browsing first 6 rows of dataframe
+
+```{r}
+colnames(bike_data)
+
+```
+
+```{r}
+head(bike_data)
+```
+
+#Finding unique values in column member_casual
+
+
+
+```{r}
+unique(bike_data$member_casual)
+```
+
+
+```{r}
+table(bike_data["member_casual"])
+```
+```{r}
+table(bike_data$member_casual)
+```
+
+# Insight No 2:
+## Two unique customers types: Subscriber 2937367 observations, Customer 880637 observations.
+
+
+## Creating new colums which will allow to analyse datframe after aggregation and when it comes to date, month, weekday etc.(#)yyyy-mm-dd as default)
+
+```{r}
+bike_data$date <- as.Date(bike_data$started_at) 
+bike_data$month <- format(as.Date(bike_data$date), "%m")
+bike_data$day <- format(as.Date(bike_data$date), "%d")
+bike_data$year <- format(as.Date(bike_data$date), "%Y")
+bike_data$day_of_week <- format(as.Date(bike_data$date), "%A")
+
+```
+
+
+## Converting data format from "chr" to "time" and creating "ride_length" column (in minutes).
+
+```{r}
+str(bike_data)
+
+bike_data$started_at <- as_datetime(bike_data$started_at)
+bike_data$ended_at <- as_datetime(bike_data$ended_at)
+
+str(bike_data)
+```
+
+
+```{r}
+bike_data$ride_length <- difftime(bike_data$ended_at,bike_data$started_at)
+```
+
+
+## Export of data to new cleaned CSV file for further analysis.
+
+### write.csv(bike_data, file ='E:/Tomasz/CapstoneGoogle/capstone_bike_data_cleaned.csv')
+### Comment made to avoid consecutive exporting of this large file. Uncomment if required and copy cody to a chunk below#
+
+```{r}
+
+
+```
+

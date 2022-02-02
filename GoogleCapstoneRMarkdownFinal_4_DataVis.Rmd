@@ -1,0 +1,174 @@
+---
+title: "GoogleCapstoneTT_Part4_DatVis"
+author: "TT"
+date: "01/02/2022"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## R Markdown
+
+## This is **fourth** part of my capstone project. Ref to previous parts.In the first part data have been collected and browsed. Therafter data was manipulated and processed. As as result data from various csv files has been made compatible. Thereafter data was merged into one large dataframe and exported to a big CSV  file for further analysis. In the second part data was analysed in terms of compatibility, some column types were changed, data was cleaned and exported to new clean CSV file.
+
+### Loading required packages
+
+
+```{r}
+library(tidyverse)
+library(lubridate)
+library(ggplot2)
+library(dplyr)
+```
+
+
+### Loading previously created dataframe:
+
+```{r}
+bikedata <- read.csv("E:/Tomasz/CapstoneGoogle/capstone_bikedata_for_analysis.csv")
+```
+
+
+```{r}
+str(bikedata)
+```
+
+
+### After export CSV file some unwanted colums were added and type of columns "started_at" and "ended at" where changed from date to character. This needs to addresed with dropping columns and type change.
+
+
+### Change type for colums and droping column X:
+
+
+```{r}
+bikedata <- bikedata %>% 
+  select(-c("X"))
+
+str(bikedata)
+```
+
+```{r}
+bikedata$started_at <- as_datetime(bikedata$started_at)
+bikedata$ended_at <- as_datetime(bikedata$ended_at)
+
+str(bikedata)
+```
+
+
+### Grouping data
+
+```{r}
+dayweek_Plot <- bikedata %>% 
+  mutate(weekday = wday(started_at, label = TRUE)) %>% 
+  group_by(member_casual, weekday) %>% 
+  summarise(number_of_rides = n()
+            ,average_duration = mean(ride_length)) %>% 
+  arrange(member_casual, weekday)
+```
+
+```{r}
+month_Plot <- bikedata %>% 
+  group_by(member_casual, month) %>% 
+  summarise(number_of_rides = n()
+            ,average_duration = mean(ride_length)) %>% 
+  arrange(member_casual, month)
+```
+
+
+## Below few basic visualisations will be created. At later stage of the capstone project they will be compared with similair visualisations in Tableau.
+
+### Plot 1 . Number of trips by week day by customer type
+
+```{r}
+dayweek_Plot %>% 
+  ggplot(aes(x = weekday, y = number_of_rides, fill = member_casual)) +
+  labs(title = "Number of trips in a week day by customer type", x="Day of the week", y= "Number of trips", fill= "Customer type") +
+  geom_col(position = "dodge")
+```
+
+
+### Plot 2 . Number of trips by week day by customer type with facet wrap (grouping by membership type)
+
+```{r}
+dayweek_Plot %>% 
+  ggplot(aes(x = weekday, y = number_of_rides, fill = member_casual)) +
+  labs(title = "Number of trips in a week day grouped by customer type", x="Day of the week", y= "Number of trips", fill= "Customer type") +
+  geom_col(position = "dodge") +
+  facet_wrap(~member_casual)
+```
+
+
+### Plot 3 . Average trip duration by week day by customer 
+
+```{r}
+dayweek_Plot %>% 
+  ggplot(aes(x = weekday, y = average_duration, fill = member_casual)) +
+  labs(title = "Average trip duration in a week day by customer type", x="Day of the week", y= "Average trip duration", fill= "Customer type") +
+  geom_col(position = "dodge")
+```
+
+### Plot 4 . Average trip duration by week day by customer type with facet wrap (grouping by membership type)
+
+```{r}
+dayweek_Plot %>% 
+  ggplot(aes(x = weekday, y = average_duration, fill = member_casual)) +
+  labs(title = "Average trip duration in a week day grouped by customer type", x="Day of the week", y= "NAverage trip duration", fill= "Customer type") +
+  geom_col(position = "dodge") +
+  facet_wrap(~member_casual)
+```
+
+
+
+
+
+### Plot 5. Number of trips by month by customer type
+
+
+```{r}
+month_Plot %>% 
+  ggplot(aes(x = month, y = number_of_rides, fill = member_casual)) +
+  labs(title = "Number of trips by month by customer type", x="Month", y= "Number of trips", fill= "Customer type")+
+  geom_col(position = "dodge") +
+  scale_x_continuous(name="Month of the year",  breaks = c(1, 2, 3, 4,5,6,7,8,9,10,11,12))
+```
+
+
+### Plot 6.Number of trips by month by customer type with facet wrap (grouping by membership type)
+
+```{r}
+month_Plot %>% 
+  ggplot(aes(x = month, y = number_of_rides, fill = member_casual)) +
+  labs(title = "Number of trips by month by customer type", x="Day of the week", y= "Number of trips",  fill= "Customer type") +
+  geom_col(position = "dodge") +
+  facet_wrap(~member_casual) +
+  scale_x_continuous(name="Month of the year",  breaks = c(1, 2, 3, 4,5,6,7,8,9,10,11,12))
+  
+```
+
+### Plot 7. Mean trip duration by month by customer type
+
+
+```{r}
+month_Plot %>% 
+  ggplot(aes(x = month, y = average_duration, fill = member_casual)) +
+  labs(title = "Mean trip duration by month by customer type", x="Month", y= "Mean trip duration", fill= "Customer type") +
+  geom_col(position = "dodge") +
+  scale_x_continuous(name="Month of the year",  breaks = c(1, 2, 3, 4,5,6,7,8,9,10,11,12))
+```
+
+
+
+### Plot 8.Mean trip duration by month by customer type with facet wrap (grouping by membership type)
+
+```{r}
+month_Plot %>% 
+  ggplot(aes(x = month, y = average_duration, fill = member_casual)) +
+  labs(title = "Mean trip duration vs Day of the week by customer type", x="Day of the week", y= "Mean trip duration",  fill= "Customer type") +
+  geom_col(position = "dodge") +
+  facet_wrap(~member_casual) +
+  scale_x_continuous(name="Month of the year",  breaks = c(1, 2, 3, 4,5,6,7,8,9,10,11,12))
+  
+```
+

@@ -1,0 +1,347 @@
+---
+title: "GoogleCapstoneTT_Part3_FromCleanDataToAnalysis"
+author: "TT"
+date: "31/01/2022"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## R Markdown
+
+## This is **third** part of my capstone project. Ref to previous parts.
+## In the first part data have been collected and browsed. Therafter data was manipulated and processed. As as result data from various csv files has been made compatible. Thereafter data was merged into one large dataframe and exported to a big CSV  file for further analysis. In the second part data was analysed in terms of compatibility, some column types were changed, data was cleaned and exported to new clean CSV file.
+
+### Loading required packages
+
+
+```{r}
+library(tidyverse)
+library(lubridate)
+library(ggplot2)
+library(dplyr)
+```
+
+### Loading previously created dataframe:
+
+```{r}
+bike_data_2019_cleaned <- read.csv("E:/Tomasz/CapstoneGoogle/capstone_bike_data_cleaned.csv")
+```
+
+
+
+### Duplicate dataframe in order to receive posssibility to return to original data frame.
+
+```{r}
+BikeData1 = bike_data_2019_cleaned
+
+head(BikeData1)
+str(BikeData1)
+```
+
+# Insight No 1:
+### After export CSV file some unwanted colums were added and type of columns "started_at" and "ended at" where changed from date to character. This needs to addresed with dropping columns and type change.
+
+
+### Change type for colums:
+
+
+```{r}
+BikeData1$started_at <- as_datetime(BikeData1$started_at)
+BikeData1$ended_at <- as_datetime(BikeData1$ended_at)
+
+str(BikeData1)
+```
+
+
+#Removing unwanted columns
+
+```{r}
+BikeData1 <- BikeData1 %>% 
+  select(-c("X.1","X"))
+
+str(BikeData1)
+```
+### Now we can see we have 16 not 18 variables.
+
+
+# Descriptive analysis
+
+```{r}
+summary(BikeData1)
+```
+
+
+# Insight No 3:
+## A. Ride length max 177200.37  minutes seems to be unrealistic
+## B. Ride length cannot be obviously negative value (minimum -56).
+## C. Given A. and B. above other measures like mean, median etc will probably alse be affected.This needs to be adressed before further analysis of the ride_legth column.
+
+
+## Exploring most popular stations:
+
+```{r}
+top_start_stations <- head(sort(table(BikeData1$start_station_name), decreasing = T), 10)
+top_start_stations <- as.data.frame(top_start_stations)
+colnames(top_start_stations) <- c('Station','Number of bike rides')
+top_start_stations
+
+```
+```{r}
+top_end_stations <- head(sort(table(BikeData1$end_station_name), decreasing = T), 10)
+top_end_stations <- as.data.frame(top_end_stations)
+colnames(top_end_stations) <- c('Station','Number of bike rides')
+top_end_stations
+```
+
+## Exploring least popular stations:
+
+
+```{r}
+bottom_start_stations <- head(sort(table(BikeData1$start_station_name)), 10)
+bottom_start_stations <- as.data.frame(bottom_start_stations)
+colnames(bottom_start_stations) <- c('Station','Number of bike rides')
+bottom_start_stations
+```
+
+
+```{r}
+bottom_end_stations <- head(sort(table(BikeData1$end_station_name)), 10)
+bottom_end_stations <- as.data.frame(bottom_end_stations)
+colnames(bottom_end_stations) <- c('Station','Number of bike rides')
+bottom_end_stations
+```
+
+
+## Analysing column ride_legth could be intersting and lead to some insights.
+
+### Longest and shortest ride
+```{r}
+max(BikeData1$ride_length)
+min(BikeData1$ride_length)
+```
+### Average ride length
+
+```{r}
+mean(BikeData1$ride_length)
+```
+
+
+### Median ride length
+
+```{r}
+median(BikeData1$ride_length)
+```
+
+
+
+
+### Inspecting top ride lengths
+
+```{r}
+top_ride_lengths <- sort(BikeData1$ride_length, decreasing = T)
+top_ride_lengths <- as.data.frame(top_ride_lengths)
+head(top_ride_lengths, 30)
+```
+
+
+# Insight no 3:
+
+## A. Longests rides duration is very unrealistic. This should be adressed and probably replaced with better quality data.
+## B. For purpose of this capstone all rides above 10000 min will be arbitrarily removed in next steps.
+## C. Keeping long rides in dataframe could significantly skew or bias results.
+## D: Rides with negative length will also be removed.
+
+
+
+## New dataframe "Bike_Data3" with removal of negative and long ride lengths will be created.
+
+```{r}
+BikeData3 <- BikeData1[!(BikeData1$ride_length<0|BikeData1$ride_length>10000),]
+
+```
+
+
+### Descriptive analysis of new dataframe:
+
+```{r}
+
+mean(BikeData3$ride_length)
+
+median(BikeData3$ride_length)
+
+max(BikeData3$ride_length)
+min(BikeData3$ride_length)
+
+
+summary(BikeData3)
+
+```
+
+
+```{r}
+str(BikeData3)
+```
+
+
+
+
+
+
+# Below there will be analysing of data in relation to different features. 
+
+## Ride lenght by membership type
+
+### Mean
+```{r} 
+aggregate(BikeData3$ride_length~ BikeData3$member_casual, FUN = mean)
+
+```
+
+### Median
+```{r}
+aggregate(BikeData3$ride_length~ BikeData3$member_casual, FUN = median)
+
+```
+
+### Min
+
+```{r}
+aggregate(BikeData3$ride_length~ BikeData3$member_casual, FUN = min)
+
+```
+
+### Max
+
+```{r}
+aggregate(BikeData3$ride_length~ BikeData3$member_casual, FUN = max)
+```
+
+
+
+
+
+# Ride length by date:
+
+### Mean
+
+```{r}
+aggregate(BikeData3$ride_length~ BikeData3$date, FUN = mean)
+```
+
+### Median
+
+```{r}
+aggregate(BikeData3$ride_length~ BikeData3$date, FUN = median)
+```
+
+
+# Mean and median ride length by day of the week:
+
+```{r}
+aggregate(BikeData3$ride_length~ BikeData3$day_of_week, FUN = mean)
+```
+
+```{r}
+aggregate(BikeData3$ride_length~ BikeData3$day_of_week, FUN = median)
+```
+
+# Insight No 4 - longest rides happens on weekends.
+
+
+## Mean ride length by memberhip type and weekday:
+
+```{r}
+aggregate(BikeData3$ride_length~BikeData3$member_casual + BikeData3$day_of_week, FUN = mean)
+```
+
+## Opposite to above. Mean ride length by first by weekday and then by membership type:
+
+```{r}
+aggregate(BikeData3$ride_length~BikeData3$day_of_week + BikeData3$member_casual, FUN = mean)
+```
+
+
+
+## As day of week is sorted alphabetically it could be wise to make order in days and months
+
+```{r}
+BikeData4 = BikeData3
+
+BikeData4$day_of_week <- ordered(BikeData4$day_of_week, levels=c("Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"))
+```
+
+
+## Lets check how it looks after weekday is ordered:
+
+```{r}
+aggregate(BikeData4$ride_length~BikeData4$member_casual + BikeData4$day_of_week, FUN = mean)
+```
+
+```{r}
+aggregate(BikeData4$ride_length~BikeData4$day_of_week + BikeData4$member_casual, FUN = mean)
+```
+
+
+
+## Analysing ride_length by membership and month of the year.
+
+```{r}
+aggregate(BikeData4$ride_length~BikeData4$month + BikeData4$member_casual, FUN = mean)
+```
+
+# Insight no 5.
+## for subscribers longest ridership occurs in summer months, which seems to be very realistic. For customers ride length looks more scattered, no pattern can be dedected. Check and ivestigate signifficant difference in ride_ duration_length between customers and subscribers.
+
+# Using pipe (%<%) in R. Analyze ridership data by type and weekday
+
+
+```{r}
+BikeData4 %>% 
+  group_by(member_casual, day_of_week) %>%  #groups by columns
+  summarise(number_of_rides = n()							#calc no of rides and avg ride
+            ,average_duration = mean(ride_length)) %>% 		
+  arrange(member_casual, day_of_week)		
+
+```
+
+
+# Using pipe (%<%) in R. Analyze ridership data by type and month
+
+```{r}
+BikeData4 %>% 
+  group_by(member_casual, month) %>%  #groups by columns
+  summarise(number_of_rides = n()							#calc no of rides and avg ride
+            ,average_duration = mean(ride_length)) %>% 		
+  arrange(member_casual, month)	
+```
+
+# Using pipe (%<%) in R. Reverse of previous. Analyze ridership data by month and then by membership type
+
+
+```{r}
+BikeData4 %>% 
+  group_by(month, member_casual) %>%  #groups by columns
+  summarise(number_of_rides = n()							#calc no of rides and avg ride
+            ,average_duration = mean(ride_length)) %>% 		
+  arrange(month, member_casual)	
+```
+
+
+
+
+### Export for further analysis and visualisations in SQL/Tableau/DataViz etc
+
+### write.csv(BikeData4, file = 'E:/Tomasz/CapstoneGoogle/capstone_bikedata_for_analysis.csv')
+
+### Comment made to avoid consecutive exporting of this large file. Uncomment if required and copy cody to a chunk below#
+
+```{r}
+
+```
+
+
+
+
