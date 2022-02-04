@@ -154,3 +154,16 @@ Dearborn St & Monroe St	3246
 
 
 ![image](https://user-images.githubusercontent.com/79140709/152158849-e8ce8b10-556d-467d-9178-6fd0cf90d7cd.png)
+
+
+
+#### To be continued: 
+
+All the work above will be at later stage capsuled in key takeaway presantation and possibly final deliverable report.
+
+Takaways to consider:
+1. sdds
+2. asdsadads
+3. sdafdsds
+4. ddssad
+5. 
