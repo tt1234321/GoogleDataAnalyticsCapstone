@@ -162,16 +162,15 @@ Dearborn St & Monroe St	3246
 ### Course certificate with link to credentials:
 
 
-<img width="730" alt="image" src="https://user-images.githubusercontent.com/79140709/152501461-d2d84f7b-d603-41cb-8988-8f41c3db2850.png">
+<img width="600" alt="image" src="https://user-images.githubusercontent.com/79140709/152501461-d2d84f7b-d603-41cb-8988-8f41c3db2850.png">
 
 
-https://coursera.org/share/83893beb19278457b100b13db55621b2
-
+https://coursera.org/share/e31d85601885a6e4551a97b1b82cc5af
 
 
 Credly badge:
 
-<img width="672" alt="image" src="https://user-images.githubusercontent.com/79140709/152501277-481fce2c-1575-46bf-b521-2eefe96bd91c.png">
+<img width="400" alt="image" src="https://user-images.githubusercontent.com/79140709/152501277-481fce2c-1575-46bf-b521-2eefe96bd91c.png">
 
 
 https://www.credly.com/badges/51039004-cd9f-47be-ac08-6008f0bea000/public_url
