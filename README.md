@@ -159,11 +159,13 @@ Dearborn St & Monroe St	3246
 
 ## **To be continued:** 
 
-All the work above will be at later stage capsuled in key takeaway presantation and possibly final deliverable report.
+All the work above will be at later stage capsuled in key takeaway presantation and possibly final deliverable report. The documents will describe the work done using capstone roadmap (Ask, Prepare, Process, Analyze, Share and Act).
 
-Takaways to consider:
-1. sdds
-2. asdsadads
-3. sdafdsds
-4. ddssad
-5. 
+
+Key facts to consider:
+1. ASK: what is the bike usage parameters for differnet type of cutomer, what are most and least popular stations, who case study insights can affect business mode and ecision, who are key stakeholders, what is quality of data and what story it can tell.
+2. PREPARE: identify data (https://divvy-tripdata.s3.amazonaws.com/index.html), most likely credible (first source) data, process data, remove duplicates, check values and data types in each columns, identify outliers, remove unwanted data.
+3. PROCESS: tools used in capstone (RStudio, SQL, Tableau), change column names, merge data, change type of data, create new column with trip duration, create colums with date (day, month, year, day of week)
+4. ANALYSE: large size data (over 3 million rows), customer tends to take less trips then subscribers, different yearly distribution of trips (bad data quality to be considered), similar weekly distribution, similair distribution of average length, identification of most and least popular stations, average lebgth of trip longer for customer and longest on weekends.
+5. ddssad
+6. 
