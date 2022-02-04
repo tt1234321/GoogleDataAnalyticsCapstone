@@ -23,7 +23,7 @@ As in the course description, analytics-based scenario was chosen for this case 
 <br>
 <br>
 
-#### Links to my work in Taubleau is published below
+### **Links to my work in Taubleau is published below**
 
 <img width="200" alt="image" src="https://public.tableau.com/s/sites/default/files/media/Tableau-Public-Logo-for-Intro-Blog.png">
 
