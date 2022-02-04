@@ -152,28 +152,39 @@ Dearborn St & Monroe St	3246
 
 ![image](https://user-images.githubusercontent.com/79140709/152158630-4285196a-5324-443c-8b60-4b5bceb7033c.png)
 
-
+<br>
+<br>
 
 #### Screenshot of Google BigQuerry workspace. Some results were saved as a tables for further analysis.
+<br>
 
 
 ![image](https://user-images.githubusercontent.com/79140709/152158849-e8ce8b10-556d-467d-9178-6fd0cf90d7cd.png)
+<br>
+<br>
 
 ### Course certificate with link to credentials:
+<br>
+#### Coursera certificate:
 
 
-<img width="600" alt="image" src="https://user-images.githubusercontent.com/79140709/152501461-d2d84f7b-d603-41cb-8988-8f41c3db2850.png">
+<img width="750" alt="image" src="https://user-images.githubusercontent.com/79140709/152501461-d2d84f7b-d603-41cb-8988-8f41c3db2850.png">
+
+<br>
+[Coursera credentials](https://coursera.org/share/e31d85601885a6e4551a97b1b82cc5af)
+<br>
 
 
-https://coursera.org/share/e31d85601885a6e4551a97b1b82cc5af
-
-
-Credly badge:
+#### Credly badge:
+<br>
 
 <img width="400" alt="image" src="https://user-images.githubusercontent.com/79140709/152501277-481fce2c-1575-46bf-b521-2eefe96bd91c.png">
+<br>
 
 
-https://www.credly.com/badges/51039004-cd9f-47be-ac08-6008f0bea000/public_url
+[Credly credentials](https://www.credly.com/badges/51039004-cd9f-47be-ac08-6008f0bea000/public_url)
+<br>
+<br>
 
 
 
