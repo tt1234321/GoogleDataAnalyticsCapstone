@@ -171,7 +171,9 @@ Dearborn St & Monroe St	3246
 <img width="750" alt="image" src="https://user-images.githubusercontent.com/79140709/152501461-d2d84f7b-d603-41cb-8988-8f41c3db2850.png">
 
 <br>
+
 [Coursera credentials](https://coursera.org/share/e31d85601885a6e4551a97b1b82cc5af)
+
 <br>
 
 
